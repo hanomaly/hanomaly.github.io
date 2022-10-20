@@ -4,6 +4,7 @@
 <title>Page Title</title>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="https://cdn.jsdelivr.net/npm/p5@1.5.0/lib/p5.js"></script>
 <style>
 body {
   font-family: Arial, Helvetica, sans-serif;
@@ -17,22 +18,21 @@ canvas {
  z-index:-1;
 }
 </style>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.1/p5.js"></script>
-<script>
-  function setup() {
-    var canvas = createCanvas(400, 400);
-    canvas.parent('canvasForHTML');
-  }
-
-  function draw() {
-    background(127);
-  }
-</script>
 </head>
 <body>
-  <h1>Canvas for visualization</h1>
   <div id="canvasForHTML"></div>
-  <p>Move your mouse around to see circles.</p>
+
+<script>
+    function setup() {
+      var canvas = createCanvas(400, 400);
+      canvas.parent('canvasForHTML');
+    }
+
+    function draw() {
+      background(127);
+      circle(200, 200, 100);
+    }
+</script>
 </body>
   
 </html>
