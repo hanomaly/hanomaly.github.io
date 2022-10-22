@@ -23,6 +23,19 @@ canvas {
   <div id="canvasForHTML"></div>
 
 <script>
+
+let r = 0;
+let vidsn = []; 
+  
+function setup() {
+  var canvas = createCanvas(windowWidth, windowHeight, WEBGL);
+  canvas.parent('canvasForHTML');
+  noStroke();
+  for (var i = 0; i < positions.length; i++) {
+    r = floor(random()*3);
+    vidsn.push(vids[r]);
+  }
+}
 function preload() {
   vid = createVideo(['twtvid_Trim.mp4']);
   vid.volume(0);
@@ -50,34 +63,27 @@ let img;
 let vid;
 let theta = 0;
 let t = 150;
-let sphSize = 100;
+let sphSize = 50;
 let planeSize = 2000; 
                   //x, y, z
-let positions = [[-200, 0, 0], 
-                 [200, 0, 0],
-                 [0, 0, -200],
-                 [200, 0, 200],
-                 [-200, 0, 200],//
-                 [-200, -250, 0], 
-                 [200, -250, 0],
-                 [0, -250, -200],
-                 [200, -250, 200],
-                 [-200, -250, 200], //
-                 [-200, 250, 0], 
-                 [200, 250, 0],
-                 [0, 250, -200],
-                 [200, 250, 200],
-                 [-200, 250, 200],
-                ];
+let positions = [];
+
 
 let r = 0;
 let vidsn = []; 
-  
+let len = 50;
+
 function setup() {
   var canvas = createCanvas(windowWidth, windowHeight, WEBGL);
   canvas.parent('canvasForHTML');
   noStroke();
-  for (var i = 0; i < positions.length; i++) {
+  
+  for (var i = 0; i < len; i++) {
+    positions.push([floor(random()*800)-400,
+                    floor(random()*800)-400,
+                    floor(random()*800)-400
+                   ]);
+    
     r = floor(random()*3);
     vidsn.push(vids[r]);
   }
@@ -101,7 +107,7 @@ function draw() {
   }
   
   push();
-  translate(-300, 0, 0);
+  translate(-800, 0, 0);
   rotateY(1.5);
   tint(t, t, t);
   texture(vid);
@@ -109,7 +115,7 @@ function draw() {
   pop();
   
   push();
-  translate(300, 0, 0);
+  translate(800, 0, 0);
   rotateY(-1.5);
   tint(t, t, t);
   texture(vid);
@@ -117,7 +123,7 @@ function draw() {
   pop();
   
   push();
-  translate(0, 0, -400);
+  translate(0, 0, -800);
   tint(t, t, t);
   texture(vid);
   plane(planeSize);
