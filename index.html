@@ -23,19 +23,6 @@ canvas {
   <div id="canvasForHTML"></div>
 
 <script>
-
-let r = 0;
-let vidsn = []; 
-  
-function setup() {
-  var canvas = createCanvas(windowWidth, windowHeight, WEBGL);
-  canvas.parent('canvasForHTML');
-  noStroke();
-  for (var i = 0; i < positions.length; i++) {
-    r = floor(random()*3);
-    vidsn.push(vids[r]);
-  }
-}
 function preload() {
   vid = createVideo(['twtvid_Trim.mp4']);
   vid.volume(0);
