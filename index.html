@@ -25,14 +25,17 @@ canvas {
 <script>
 function preload() {
   vid = createVideo(['twtvid_Trim.mp4']);
+  vid.volume(0);
   vid.loop();
   vid.hide();
   
   vid2 = createVideo(['twit1.mp4']);
+  vid2.volume(0);
   vid2.loop();
   vid2.hide();
   
   vid3 = createVideo(['twit2.mp4']);
+  vid3.volume(0);
   vid3.loop();
   vid3.hide();
   
@@ -69,9 +72,6 @@ let positions = [[-200, 0, 0],
 
 let r = 0;
 let vidsn = []; 
-
-
-function mousePressed() { getAudioContext().resume() }
   
 function setup() {
   var canvas = createCanvas(windowWidth, windowHeight, WEBGL);
