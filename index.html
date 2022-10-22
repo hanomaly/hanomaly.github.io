@@ -70,6 +70,9 @@ let positions = [[-200, 0, 0],
 let r = 0;
 let vidsn = []; 
 
+
+function mousePressed() { getAudioContext().resume() }
+  
 function setup() {
   var canvas = createCanvas(windowWidth, windowHeight, WEBGL);
   canvas.parent('canvasForHTML');
